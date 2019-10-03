@@ -1,0 +1,41 @@
+div[chckLoc="Admin"] {
+    font-size: 2rem;
+    // color: #fff;
+    .fab,
+    .fas,
+    .far {
+        margin-right: 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        vertical-align: sub;
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    li {
+        button {
+            background: #33334d;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 0px;
+            border-right: 0.1rem solid #666699;
+            &:hover {
+                text-shadow: 0.1rem 0.1rem 0.2rem #002699;
+                color: #090909;
+                background: #ff0066;
+                border-right: 0.1rem solid #000;
+            }
+        }
+    }
+
+    .sticking {
+        background: rgba(#080808, 0.1);
+    }
+
+    section {
+        width: 90%;
+        margin: auto;
+    }
+}
