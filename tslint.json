@@ -1,0 +1,115 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+        "array-type": false,
+        "arrow-parens": false,
+        "deprecation": {
+            "severity": "warning"
+        },
+        "import-blacklist": [
+            true,
+            "rxjs/Rx"
+        ],
+        "interface-name": false,
+        "max-classes-per-file": false,
+        "max-line-length": [
+            true,
+            300
+        ],
+        "member-access": false,
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "static-field",
+                    "instance-field",
+                    "static-method",
+                    "instance-method"
+                ]
+            }
+        ],
+        "no-consecutive-blank-lines": false,
+        "no-console": [
+            true,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace"
+        ],
+        "no-inferrable-types": [
+            true,
+            "ignore-params"
+        ],
+        "no-non-null-assertion": true,
+        "no-redundant-jsdoc": false,
+        "no-switch-case-fall-through": true,
+        "no-var-requires": false,
+        "object-literal-key-quotes": [
+            true,
+            "as-needed"
+        ],
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "quotemark": [
+            true,
+            "double"
+        ],
+        "trailing-comma": false,
+        "class-name": true,
+        "curly": true,
+        "eofline": false,
+        "forin": true,
+        "label-position": true,
+        "label-undefined": true,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-construct": true,
+        "no-constructor-vars": false,
+        "no-debugger": true,
+        "no-duplicate-key": true,
+        "no-duplicate-variable": true,
+        "no-empty": true,
+        "no-eval": true,
+        "no-string-literal": true,
+        "no-trailing-whitespace": true,
+        "no-unused-expression": true,
+        "no-unused-variable": false,
+        "no-unreachable": true,
+        "no-use-before-declare": true,
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-catch",
+            "check-else",
+            "check-whitespace"
+        ],
+        "semicolon": true,
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ],
+        "typedef": [
+            true,
+            "callSignature",
+            "indexSignature",
+            "parameter",
+            "propertySignature",
+            "variableDeclarator",
+            "memberVariableDeclarator"
+        ],
+        "use-strict": false,
+        "variable-name": [
+            true,
+            "allow-leading-underscore"
+        ],
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ]
+    }
+}
