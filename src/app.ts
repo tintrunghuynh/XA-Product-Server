@@ -48,12 +48,13 @@ export class Server {
     config() {
         // connect to db
         let dbURI = process.env.MONGODB_URL;
-        dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
+        dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/all?retryWrites=true&w=majority";
         console.log("Using this URL, Express will connect to mongoDB. dbURI: " + process.env.MONGODB_URL);
 
         let statusAutoIndex = true;
         if (process.env.NODE_ENV === "production") {
             dbURI = process.env.MONGODB_P_URL;
+            dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/all?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
 

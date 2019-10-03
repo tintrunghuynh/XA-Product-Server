@@ -26,8 +26,7 @@ const debug = Debug.debug("server:server");
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || "3000");
-port = 8080;
+const port = normalizePort(process.env.PORT_EXPRESS || "8080");
 // app.set('port', port);
 
 /**
