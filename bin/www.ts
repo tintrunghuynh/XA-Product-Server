@@ -12,9 +12,6 @@ import Debug from "debug";
 import path from "path";
 import fs from "fs";
 
-console.log(process.env.NODE_ENV);
-
-
 console.log(__dirname);
 if (process.env.NODE_ENV === "DEV") {
     console.log("copyFileDefInDev");
@@ -29,8 +26,8 @@ const debug = Debug.debug("server:server");
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || "3000");
-console.log("process.env.PORT: " + process.env.PORT);
+let port = normalizePort(process.env.PORT || "3000");
+port = 8080;
 // app.set('port', port);
 
 /**
