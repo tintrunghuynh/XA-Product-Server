@@ -12,7 +12,8 @@ import Debug from "debug";
 import path from "path";
 import fs from "fs";
 
-console.log(__dirname);
+console.log(`__dirname: ${__dirname}`);
+console.log(`Environment: ${process.env.NODE_ENV}`);
 if (process.env.NODE_ENV === "DEV") {
     console.log("copyFileDefInDev");
     copyFileDefInDev();
@@ -27,7 +28,6 @@ const debug = Debug.debug("server:server");
  */
 
 const port = normalizePort(process.env.PORT_EXPRESS || "8080");
-// app.set('port', port);
 
 /**
  * Create HTTP server.
@@ -37,6 +37,7 @@ const port = normalizePort(process.env.PORT_EXPRESS || "8080");
 // const credentials = { key: privateKey, cert: certificate };
 // const server = https.createServer(credentials, new Server().app);
 const server = http.createServer(new Server().app);
+
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -115,29 +116,27 @@ function onListening() {
 // Copy file Graphql TypeDef into Build(dist) folder in Dev Env
 function copyFileDefInDev() {
     const shell = require("child_process").execSync;
-    console.log(__dirname);
     const src = path.join(__dirname, "/../src/Graphql/types");
     const build = path.join(__dirname, "/../build/src/Graphql/types");
-    console.log(src);
-    console.log(build);
+    console.log(`From\t: ${src}`);
+    console.log(`To\t: ${build}\n`);
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
 }
 // Copy file Graphql TypeDef into Build(dist) folder in Prod Env
 function copyFileDefInProd() {
     const shell = require("child_process").execSync;
-    console.log(__dirname);
     let src = path.join(__dirname, "/../../src/Graphql/types");
     let build = path.join(__dirname, "/../src/Graphql/types");
-    console.log(src);
-    console.log(build);
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
+    console.log(`\nFrom\t: ${src}`);
+    console.log(`To\t: ${build}\n`);
     src = path.join(__dirname, "/../../sslcert");
     build = path.join(__dirname, "/../sslcert");
-    console.log("src");
-    console.log(src);
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
+    console.log(`From\t: ${src}`);
+    console.log(`To\t: ${build}\n`);
 }
 

@@ -48,18 +48,18 @@ export class Server {
     config() {
         // connect to db
         let dbURI = process.env.MONGODB_URL;
-        dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/all?retryWrites=true&w=majority";
-        console.log("Using this URL, Express will connect to mongoDB. dbURI: " + process.env.MONGODB_URL);
+        // dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
+        dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
 
         let statusAutoIndex = true;
-        if (process.env.NODE_ENV === "production") {
-            dbURI = process.env.MONGODB_P_URL;
-            dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/all?retryWrites=true&w=majority";
+        if (process.env.NODE_ENV === "PROD") {
+            // dbURI = process.env.MONGODB_P_URL;
+            // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
 
         this.app.get("/", (req, res) => {
-            res.send("Hello World! Ts server!");
+            res.send("Express with TS");
         });
 
         mongoose.connect(Object(dbURI).toString(), {
@@ -103,7 +103,7 @@ export class Server {
         this.app.use((err: any, req: any, res: any, next: any) => {
             // set locals, only providing error in development
             res.locals.message = err.message;
-            res.locals.error = req.app.get("env") === "development" ? err : {};
+            res.locals.error = req.app.get("env") === "DEV" ? err : {};
 
             // render the error page
             res.status(err.status || 500);

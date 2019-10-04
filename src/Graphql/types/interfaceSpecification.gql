@@ -36,6 +36,7 @@ extend type Mutation {
         category: String
         specifications: JSON
         descriptions: String
+        updatedDate: String
         status: String
     ): Response
 }

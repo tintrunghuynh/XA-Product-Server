@@ -10,12 +10,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // import * as app from '../app';
 // import http from 'http';
 var app_1 = require("../src/app");
-var https_1 = __importDefault(require("https"));
+var http_1 = __importDefault(require("http"));
 var debug_1 = __importDefault(require("debug"));
 var path_1 = __importDefault(require("path"));
-var fs_1 = __importDefault(require("fs"));
-console.log(process.env.NODE_ENV);
-console.log(__dirname);
+console.log("__dirname: " + __dirname);
+console.log("Environment: " + process.env.NODE_ENV);
 if (process.env.NODE_ENV === "DEV") {
     console.log("copyFileDefInDev");
     copyFileDefInDev();
@@ -28,16 +27,15 @@ var debug = debug_1.default.debug("server:server");
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(process.env.PORT || "3000");
-console.log("process.env.PORT: " + process.env.PORT);
-// app.set('port', port);
+var port = normalizePort(process.env.PORT_EXPRESS || "8080");
 /**
  * Create HTTP server.
  */
-var privateKey = fs_1.default.readFileSync(__dirname + "/../sslcert/selfsigned.key");
-var certificate = fs_1.default.readFileSync(__dirname + "/../sslcert/selfsigned.crt");
-var credentials = { key: privateKey, cert: certificate };
-var server = https_1.default.createServer(credentials, new app_1.Server().app);
+// const privateKey = fs.readFileSync(__dirname + "/../sslcert/selfsigned.key");
+// const certificate = fs.readFileSync(__dirname + "/../sslcert/selfsigned.crt");
+// const credentials = { key: privateKey, cert: certificate };
+// const server = https.createServer(credentials, new Server().app);
+var server = http_1.default.createServer(new app_1.Server().app);
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -112,17 +110,16 @@ function copyFileDefInDev() {
 // Copy file Graphql TypeDef into Build(dist) folder in Prod Env
 function copyFileDefInProd() {
     var shell = require("child_process").execSync;
-    console.log(__dirname);
     var src = path_1.default.join(__dirname, "/../../src/Graphql/types");
     var build = path_1.default.join(__dirname, "/../src/Graphql/types");
-    console.log(src);
-    console.log(build);
     shell("mkdir -p " + build);
     shell("cp -r " + src + "/* " + build);
+    console.log("\nFrom\t: " + src);
+    console.log("To\t: " + build + "\n");
     src = path_1.default.join(__dirname, "/../../sslcert");
     build = path_1.default.join(__dirname, "/../sslcert");
-    console.log("src");
-    console.log(src);
     shell("mkdir -p " + build);
     shell("cp -r " + src + "/* " + build);
+    console.log("From\t: " + src);
+    console.log("To\t: " + build + "\n");
 }

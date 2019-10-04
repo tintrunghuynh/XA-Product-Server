@@ -3,7 +3,7 @@ import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 import * as path from "path";
 
 export const schema = () => {
-    const resolversArray = fileLoader(path.join(__dirname, "./resolvers/"), { recursive: true, extensions: [".ts"] });
+    const resolversArray = fileLoader(path.join(__dirname, "./resolvers/"), { recursive: true, extensions: [".*s"] });
     const typesArray = fileLoader(path.join(__dirname, "./types/"), { recursive: true, extensions: [".gql"] });
     const resolvers = mergeResolvers(resolversArray);
     const typeDefs = mergeTypes(typesArray, { all: true });

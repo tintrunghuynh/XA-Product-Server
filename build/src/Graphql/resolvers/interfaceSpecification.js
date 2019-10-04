@@ -75,8 +75,8 @@ exports.default = {
                             if (list.length === 1) {
                                 element = list[0];
                                 console.log(element);
-                                console.log("element._id: " + element.id + "\t params._id: " + id);
-                                if ((element._id).equals(id)) {
+                                console.log("element._id: " + element._id + "\t params._id: " + id);
+                                if ((element._id).Equals(id)) {
                                     console.log("Equals");
                                     return [2 /*return*/, false];
                                 }

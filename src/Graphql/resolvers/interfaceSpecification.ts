@@ -23,7 +23,7 @@ export default {
             if (list.length === 1) {
                 const element = list[0];
                 console.log(element);
-                console.log(`element._id: ${element.id}\t params._id: ${id}`);
+                console.log(`element._id: ${element._id}\t params._id: ${id}`);
                 if ((element._id).equals(id)) {
                     console.log("Equals");
                     return false;
@@ -91,6 +91,7 @@ export default {
             return { ok: true, data: savedModel };
         },
         async updateInterfaceSpecification(root: any, params: any) {
+            // console.log(`oldDate: $${params.updatedDate}`);
             params.updatedDate = new Date();
             console.log("new Params: ");
             console.log(params);

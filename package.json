@@ -2,12 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "./bin/www",
+  "main": "./build/bin/www.js",
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run prod",
     "tsc": "tsc",
     "dev": "NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www",
-    "prod": "tsc && NODE_ENV=PROD node ./build/bin/www.js "
+    "prod": "npm run tsc --PROD && NODE_ENV=PROD node ./build/bin/www.js"
   },
   "keywords": [],
   "author": "",

@@ -88,14 +88,16 @@ var Server = /** @class */ (function () {
         var _this = this;
         // connect to db
         var dbURI = process.env.MONGODB_URL;
-        console.log("Using this URL, Express will connect to mongoDB. dbURI: " + process.env.MONGODB_URL);
+        // dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
+        dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
         var statusAutoIndex = true;
-        if (process.env.NODE_ENV === "production") {
-            dbURI = process.env.MONGODB_P_URL;
+        if (process.env.NODE_ENV === "PROD") {
+            // dbURI = process.env.MONGODB_P_URL;
+            // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
         this.app.get("/", function (req, res) {
-            res.send("Hello World! Ts server!");
+            res.send("Express with TS");
         });
         mongoose_1.default.connect(Object(dbURI).toString(), {
             useNewUrlParser: true,
@@ -132,7 +134,7 @@ var Server = /** @class */ (function () {
         this.app.use(function (err, req, res, next) {
             // set locals, only providing error in development
             res.locals.message = err.message;
-            res.locals.error = req.app.get("env") === "development" ? err : {};
+            res.locals.error = req.app.get("env") === "DEV" ? err : {};
             // render the error page
             res.status(err.status || 500);
             res.render("error");
