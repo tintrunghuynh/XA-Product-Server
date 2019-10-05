@@ -27,7 +27,7 @@ const debug = Debug.debug("server:server");
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT_EXPRESS || "8080");
+// const port = normalizePort(process.env.PORT || "5000");
 
 /**
  * Create HTTP server.
@@ -41,8 +41,10 @@ const server = http.createServer(new Server().app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => {
-    console.log(`Server Express Connected At Port: ${port}`);
+
+const host = "0.0.0.0";
+server.listen((process.env.PORT || 8080), () => {
+    console.log(`Server Express Connected At Port: ${process.env.PORT || 8080}`);
 
 });
 
