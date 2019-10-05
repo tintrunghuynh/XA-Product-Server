@@ -1,0 +1,11 @@
+type errorMessage {
+  message: String
+  fields: JSON
+}
+
+type Response {
+  ok: Boolean!
+  message: String
+  data: JSON
+  errorMessage: errorMessage
+}
