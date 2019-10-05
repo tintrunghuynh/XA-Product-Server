@@ -96,8 +96,10 @@ var Server = /** @class */ (function () {
             // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
-        this.app.get("/", function (req, res) {
-            res.send("Express with TS");
+        this.app.get("/", function (req, res, next) {
+            // console.log("get");
+            // res.send("Express with TS");
+            res.sendFile(path_1.default.join(__dirname + "/index.html"));
         });
         mongoose_1.default.connect(Object(dbURI).toString(), {
             useNewUrlParser: true,
@@ -127,6 +129,8 @@ var Server = /** @class */ (function () {
                 next();
             }
             else {
+                res.sendFile(path_1.default.join(__dirname + "/404.html"));
+                res.send("404.html");
                 next(http_errors_1.default(404));
             }
         });

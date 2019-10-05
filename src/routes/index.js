@@ -7,5 +7,6 @@ var express_1 = __importDefault(require("express"));
 exports.router = express_1.default.Router();
 /* GET home page. */
 exports.router.get("/", function (req, res, next) {
+    console.log("index");
     res.render("index", { title: "Express" });
 });
