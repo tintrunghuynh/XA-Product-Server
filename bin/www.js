@@ -38,9 +38,8 @@ var server = http_1.default.createServer(new app_1.Server().app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-var host = "0.0.0.0";
-var port = process.env.PORT;
-server.listen((process.env.PORT || 8080), function () {
+var port = process.env.PORT || 8080;
+server.listen(port, function () {
     console.log("Server Express Connected At Port: " + (process.env.PORT || 8080));
 });
 server.on("error", onError);
