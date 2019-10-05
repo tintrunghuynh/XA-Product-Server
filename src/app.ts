@@ -58,7 +58,8 @@ export class Server {
             statusAutoIndex = false;
         }
 
-        this.app.get("/", (req, res) => {
+        this.app.get("/", (req, res, next) => {
+            // console.log("get");
             res.send("Express with TS");
         });
 
@@ -95,6 +96,7 @@ export class Server {
             if (req.path.includes("/graphql-retrieve")) {
                 next();
             } else {
+                res.send("404.html");
                 next(createError(404));
             }
         });

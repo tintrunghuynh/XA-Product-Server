@@ -15,13 +15,14 @@ var debug_1 = __importDefault(require("debug"));
 var path_1 = __importDefault(require("path"));
 console.log("__dirname: " + __dirname);
 console.log("Environment: " + process.env.NODE_ENV);
-// if (process.env.NODE_ENV === "DEV") {
-//     console.log("copyFileDefInDev");
-//     copyFileDefInDev();
-// } else if (process.env.NODE_ENV === "PROD") {
-//     console.log("copyFileDefInProd");
-//     copyFileDefInProd();
-// }
+if (process.env.NODE_ENV === "DEV") {
+    console.log("copyFileDefInDev");
+    copyFileDefInDev();
+}
+else if (process.env.NODE_ENV === "PROD") {
+    console.log("copyFileDefInProd");
+    copyFileDefInProd();
+}
 var debug = debug_1.default.debug("server:server");
 /**
  * Get port from environment and store in Express.
@@ -38,9 +39,8 @@ var server = http_1.default.createServer(new app_1.Server().app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-var host = "0.0.0.0";
-var port = process.env.PORT;
-server.listen((process.env.PORT || 8080), function () {
+var port = process.env.PORT || 8080;
+server.listen(port, function () {
     console.log("Server Express Connected At Port: " + (process.env.PORT || 8080));
 });
 server.on("error", onError);
@@ -102,10 +102,16 @@ function copyFileDefInDev() {
     var shell = require("child_process").execSync;
     var src = path_1.default.join(__dirname, "/../src/Graphql/types");
     var build = path_1.default.join(__dirname, "/../build/src/Graphql/types");
-    console.log("From\t: " + src);
-    console.log("To\t: " + build + "\n");
     shell("mkdir -p " + build);
     shell("cp -r " + src + "/* " + build);
+    console.log("From\t: " + src);
+    console.log("To\t: " + build + "\n");
+    src = path_1.default.join(__dirname, "/../src/html");
+    build = path_1.default.join(__dirname, "/../build/src");
+    shell("mkdir -p " + build);
+    shell("cp -r " + src + "/* " + build);
+    console.log("From\t: " + src);
+    console.log("To\t: " + build + "\n");
 }
 // Copy file Graphql TypeDef into Build(dist) folder in Prod Env
 function copyFileDefInProd() {
@@ -118,6 +124,12 @@ function copyFileDefInProd() {
     console.log("To\t: " + build + "\n");
     src = path_1.default.join(__dirname, "/../../sslcert");
     build = path_1.default.join(__dirname, "/../sslcert");
+    shell("mkdir -p " + build);
+    shell("cp -r " + src + "/* " + build);
+    console.log("From\t: " + src);
+    console.log("To\t: " + build + "\n");
+    src = path_1.default.join(__dirname, "/../../src/html");
+    build = path_1.default.join(__dirname, "/../src");
     shell("mkdir -p " + build);
     shell("cp -r " + src + "/* " + build);
     console.log("From\t: " + src);
