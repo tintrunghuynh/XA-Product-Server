@@ -1,0 +1,13 @@
+enum EnumISCategory{ # Interface Specification Category
+    CATEGORY_01,
+    CATEGORY_02,
+    CATEGORY_03,
+    CATEGORY_04
+}
+
+enum EnumISStatus{ # Interface Specification Status
+    ENABLE,
+    DISABLE,
+    SUSPEND,
+    DELETE,
+}
