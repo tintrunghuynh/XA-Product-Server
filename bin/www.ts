@@ -123,13 +123,6 @@ function copyFileDefInDev() {
     shell(`cp -r ${src}/* ${build}`);
     console.log(`From\t: ${src}`);
     console.log(`To\t: ${build}\n`);
-
-    src = path.join(__dirname, "/../src/html");
-    build = path.join(__dirname, "/../build/src");
-    shell(`mkdir -p ${build}`);
-    shell(`cp -r ${src}/* ${build}`);
-    console.log(`From\t: ${src}`);
-    console.log(`To\t: ${build}\n`);
 }
 // Copy file Graphql TypeDef into Build(dist) folder in Prod Env
 function copyFileDefInProd() {
@@ -142,12 +135,6 @@ function copyFileDefInProd() {
     console.log(`To\t: ${build}\n`);
     src = path.join(__dirname, "/../../sslcert");
     build = path.join(__dirname, "/../sslcert");
-    shell(`mkdir -p ${build}`);
-    shell(`cp -r ${src}/* ${build}`);
-    console.log(`From\t: ${src}`);
-    console.log(`To\t: ${build}\n`);
-    src = path.join(__dirname, "/../../src/html");
-    build = path.join(__dirname, "/../src");
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
     console.log(`From\t: ${src}`);

@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "./build/bin/www.js",
-  "homepage": "https://tintrunghuynh.github.io/XA-Product-Server",
   "scripts": {
     "start": "npm run prod",
     "tsc": "tsc",
     "build": "npm run tsc",
     "dev": "NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www",
-    "prod": "tsc && NODE_ENV=PROD PORT=8080 HOST=0.0.0.0 node ./build/bin/www.js",
-    "deploy": "gh-pages -d build --base-href /XA-Product-Client/"
+    "prod": "npm install && npm run tsc && NODE_ENV=PROD PORT=8080 HOST=0.0.0.0 node ./build/bin/www.js"
   },
   "keywords": [],
   "author": "",
