@@ -43,6 +43,7 @@ const server = http.createServer(new Server().app);
  */
 
 const host = "0.0.0.0";
+const port = process.env.PORT;
 server.listen((process.env.PORT || 8080), () => {
     console.log(`Server Express Connected At Port: ${process.env.PORT || 8080}`);
 
