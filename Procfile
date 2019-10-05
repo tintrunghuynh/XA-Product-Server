@@ -1,1 +1,0 @@
-web: npm run install NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www
