@@ -5,7 +5,7 @@
   "main": "./build/bin/www.js",
   "scripts": {
     "copy": "",
-    "heroku": "NODE_ENV=PROD node ./src/copyFiles.js npm run tsc && git add . && git commit -m 'auto-deploy' && git push heroku master",
+    "heroku": "NODE_ENV=PROD node ./src/copyFiles.js && npm run tsc && git add . && git commit -m 'auto-deploy' && git push heroku master",
     "start": "node ./build/bin/www.js",
     "tsc": "tsc",
     "dev": "NODE_ENV=DEV node ./src/copyFiles.js && NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www",
