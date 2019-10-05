@@ -76,7 +76,7 @@ exports.default = {
                                 element = list[0];
                                 console.log(element);
                                 console.log("element._id: " + element._id + "\t params._id: " + id);
-                                if ((element._id).Equals(id)) {
+                                if ((element._id).equals(id)) {
                                     console.log("Equals");
                                     return [2 /*return*/, false];
                                 }
@@ -169,6 +169,7 @@ exports.default = {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
+                            // console.log(`oldDate: $${params.updatedDate}`);
                             params.updatedDate = new Date();
                             console.log("new Params: ");
                             console.log(params);

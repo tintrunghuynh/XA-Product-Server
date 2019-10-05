@@ -14,13 +14,13 @@ import fs from "fs";
 
 console.log(`__dirname: ${__dirname}`);
 console.log(`Environment: ${process.env.NODE_ENV}`);
-if (process.env.NODE_ENV === "DEV") {
-    console.log("copyFileDefInDev");
-    copyFileDefInDev();
-} else if (process.env.NODE_ENV === "PROD") {
-    console.log("copyFileDefInProd");
-    copyFileDefInProd();
-}
+// if (process.env.NODE_ENV === "DEV") {
+//     console.log("copyFileDefInDev");
+//     copyFileDefInDev();
+// } else if (process.env.NODE_ENV === "PROD") {
+//     console.log("copyFileDefInProd");
+//     copyFileDefInProd();
+// }
 
 const debug = Debug.debug("server:server");
 /**

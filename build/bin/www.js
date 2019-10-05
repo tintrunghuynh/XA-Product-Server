@@ -15,14 +15,13 @@ var debug_1 = __importDefault(require("debug"));
 var path_1 = __importDefault(require("path"));
 console.log("__dirname: " + __dirname);
 console.log("Environment: " + process.env.NODE_ENV);
-if (process.env.NODE_ENV === "DEV") {
-    console.log("copyFileDefInDev");
-    copyFileDefInDev();
-}
-else if (process.env.NODE_ENV === "PROD") {
-    console.log("copyFileDefInProd");
-    copyFileDefInProd();
-}
+// if (process.env.NODE_ENV === "DEV") {
+//     console.log("copyFileDefInDev");
+//     copyFileDefInDev();
+// } else if (process.env.NODE_ENV === "PROD") {
+//     console.log("copyFileDefInProd");
+//     copyFileDefInProd();
+// }
 var debug = debug_1.default.debug("server:server");
 /**
  * Get port from environment and store in Express.
@@ -99,11 +98,10 @@ function onListening() {
 // Copy file Graphql TypeDef into Build(dist) folder in Dev Env
 function copyFileDefInDev() {
     var shell = require("child_process").execSync;
-    console.log(__dirname);
     var src = path_1.default.join(__dirname, "/../src/Graphql/types");
     var build = path_1.default.join(__dirname, "/../build/src/Graphql/types");
-    console.log(src);
-    console.log(build);
+    console.log("From\t: " + src);
+    console.log("To\t: " + build + "\n");
     shell("mkdir -p " + build);
     shell("cp -r " + src + "/* " + build);
 }
