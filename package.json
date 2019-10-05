@@ -4,7 +4,7 @@
   "description": "",
   "main": "./build/bin/www.js",
   "scripts": {
-    "heroku":"npm run add && npm run commit && npm run push",
+    "heroku":"npm run commit && npm run push",
     "commit":"git commit -m 'auto deploy'",
     "push":"git push heroku master",
     "start": "npm run build",
