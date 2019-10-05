@@ -9,8 +9,8 @@
     "tsc": "tsc",
     "build": "npm run tsc",
     "dev": "NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www",
-    "prod": "npm run tsc --PROD && NODE_ENV=PROD node ./build/bin/www.js",
-    "deploy":"gh-pages -d build --base-href /XA-Product-Client/"
+    "prod": "tsc && NODE_ENV=PROD PORT=8080 HOST=0.0.0.0 node ./build/bin/www.js",
+    "deploy": "gh-pages -d build --base-href /XA-Product-Client/"
   },
   "keywords": [],
   "author": "",
@@ -46,7 +46,6 @@
     "@types/express": "^4.17.1",
     "@types/http-errors": "^1.6.2",
     "@types/mongoose": "^5.5.18",
-    "@types/morgan": "^1.7.37",
-    "gh-pages": "^2.1.1"
+    "@types/morgan": "^1.7.37"
   }
 }
