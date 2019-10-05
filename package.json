@@ -4,13 +4,12 @@
   "description": "",
   "main": "./build/bin/www.js",
   "scripts": {
-    "heroku":"git add . && git commit -m 'auto-deoloy' && git push heroku master",
+    "heroku":"npm run build && git add . && git commit -m 'auto-deoloy' && git push heroku master",
     "start": "node ./build/bin/www.js",
     "tsc": "tsc",
     "build": "npm run tsc",
     "dev": "NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www",
-    "prod": "NODE_ENV=PROD PORT=8080 HOST=0.0.0.0 node ./build/bin/www.js",
-    "deploy":"npm run tsc && git add * && git commit -m 'deploy' && git push heroku master"
+    "prod": "NODE_ENV=PROD PORT=8080 HOST=0.0.0.0 node ./build/bin/www.js"
   },
   "keywords": [],
   "author": "",
