@@ -1,1 +1,0 @@
-web: npm install && npm run build && NODE_ENV=PROD PORT=8080 node ./build/bin/www.js
