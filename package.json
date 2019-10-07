@@ -4,9 +4,9 @@
   "description": "",
   "main": "./build/bin/www.js",
   "scripts": {
-    "heroku": "NODE_ENV=PROD node ./src/copyFiles.js && npm run tsc && git add . && git commit -m 'auto-deploy' && git push heroku master",
+    "heroku": "NODE_ENV=PROD node ./src/copyFiles.js && npm run tsc-p && git add . && git commit -m 'auto-deploy' && git push heroku master",
     "start": "node ./build/bin/www.js",
-    "tsc": "tsc",
+    "tsc-p": "tsc -p .",
     "dev": "NODE_ENV=DEV node ./src/copyFiles.js && NODE_ENV=DEV ts-node-dev --respawn --transpileOnly ./bin/www",
     "prod": "NODE_ENV=PROD node ./src/copyFiles.js && tsc && NODE_ENV=PROD PORT=8080 HOST=0.0.0.0 node ./build/bin/www.js"
   },
