@@ -114,23 +114,29 @@ var Server = /** @class */ (function () {
             console.log(error);
         });
         // view engine setup
-        this.app.set("views", path_1.default.join(__dirname, "views"));
-        this.app.set("view engine", "jade");
+        // this.app.set("views", path.join(__dirname, "views"));
+        // this.app.set("view engine", "jade");
         this.app.use(morgan_1.default("dev"));
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: false }));
         this.app.use(cookie_parser_1.default());
         this.app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
+        // favicon
+        // this.app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
         // catch 404 and forward to error handler
         this.app.use(function (req, res, next) {
-            console.clear();
+            // console.clear();
             console.log(req.path);
             // Exception for checking GraphQL using GraphiQL
             if (req.path.includes("/graphql-retrieve")) {
                 next();
             }
+            else if (req.path.includes("/favicon.ico")) {
+                _this.app.get('/favicon.ico', function (req, res) { return res.status(204); });
+                next();
+            }
             else {
-                res.render("404");
+                res.send("\n                <h1>Error - 404</h1>\n                <h2>Page Not Found</h2>\n                \n                ");
                 next(http_errors_1.default(404));
             }
         });

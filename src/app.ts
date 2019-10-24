@@ -83,8 +83,8 @@ export class Server {
 
 
         // view engine setup
-        this.app.set("views", path.join(__dirname, "views"));
-        this.app.set("view engine", "jade");
+        // this.app.set("views", path.join(__dirname, "views"));
+        // this.app.set("view engine", "jade");
 
         this.app.use(logger("dev"));
 
@@ -94,15 +94,25 @@ export class Server {
         this.app.use(cookieParser());
         this.app.use(express.static(path.join(__dirname, "public")));
 
+        // favicon
+        // this.app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
         // catch 404 and forward to error handler
         this.app.use((req, res, next) => {
-            console.clear();
+            // console.clear();
             console.log(req.path);
             // Exception for checking GraphQL using GraphiQL
             if (req.path.includes("/graphql-retrieve")) {
                 next();
+            } else if (req.path.includes("/favicon.ico")) {
+                this.app.get('/favicon.ico', (req, res) => res.status(204));
+                next();
             } else {
-                res.render("404");
+                res.send(`
+                <h1>Error - 404</h1>
+                <h2>Page Not Found</h2>
+                
+                `);
                 next(createError(404));
             }
         });
@@ -142,6 +152,8 @@ export class Server {
                 }
             }
         }));
+
+
     }
 
     routes() {
