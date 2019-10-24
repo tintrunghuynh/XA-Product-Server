@@ -97,6 +97,7 @@ var Server = /** @class */ (function () {
             statusAutoIndex = false;
         }
         console.log("dbURI: " + dbURI);
+        console.log(process.env.NODE_ENV);
         this.app.get("/", function (req, res, next) {
             // console.log("get");
             res.send("\n            <h1> Welcome to Express with TS </h1>\n            <h2> Hosted by Heroku </h2>\n            <a href = \"/graphql-retrieve\" style = \"text-decoration:none; color: #33334d\" > Click to come to GraphiQL </a>            <p>dbURI: " + dbURI + "</p>\n            ");

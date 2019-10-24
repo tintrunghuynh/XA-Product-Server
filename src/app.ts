@@ -59,7 +59,7 @@ export class Server {
         }
 
         console.log("dbURI: " + dbURI);
-
+        console.log(process.env.NODE_ENV);
         this.app.get("/", (req, res, next) => {
             // console.log("get");
             res.send(`

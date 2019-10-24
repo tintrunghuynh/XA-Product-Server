@@ -4,7 +4,7 @@
   "description": "",
   "main": "./build/bin/www.js",
   "scripts": {
-    "heroku": "NODE_ENV=PROD node ./src/copyFiles.js && npm run tsc-p && git add . && git commit -m 'auto-deploy' && git push heroku master",
+    "heroku": "NODE_ENV=PROD node ./src/copyFiles.js && npm run tsc-p && NODE_ENV=PROD && git add . && git commit -m 'auto-deploy' && git push heroku master",
     "start": "npm run dev",
     "start-prod": "node ./build/bin/www.js",
     "tsc-p": "tsc -p .",
