@@ -88,17 +88,17 @@ var Server = /** @class */ (function () {
         var _this = this;
         // connect to db
         var dbURI = process.env.MONGODB_URL;
-        // dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
-        dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
+        dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
+        // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
         var statusAutoIndex = true;
         if (process.env.NODE_ENV === "PROD") {
             // dbURI = process.env.MONGODB_P_URL;
-            // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
+            dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
         this.app.get("/", function (req, res, next) {
             // console.log("get");
-            res.send("Express with TS");
+            res.send("\n            <h1>Welcome to Express with TS</h1>\n            <h2>Hosted by Heroku</h2>\n            <a href=\"/graphql-retrieve\" style=\"text-decoration:none; color: #33334d\">Click to come to GraphiQL</a>\n            ");
         });
         mongoose_1.default.connect(Object(dbURI).toString(), {
             useNewUrlParser: true,
@@ -123,12 +123,14 @@ var Server = /** @class */ (function () {
         this.app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
         // catch 404 and forward to error handler
         this.app.use(function (req, res, next) {
+            console.clear();
+            console.log(req.path);
             // Exception for checking GraphQL using GraphiQL
             if (req.path.includes("/graphql-retrieve")) {
                 next();
             }
             else {
-                res.send("404.html");
+                res.render("404");
                 next(http_errors_1.default(404));
             }
         });

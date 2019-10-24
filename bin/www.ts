@@ -22,12 +22,16 @@ const debug = Debug.debug("server:server");
 // const port = normalizePort(process.env.PORT || "5000");
 
 /**
- * Create HTTP server.
+ * Create HTTPS server.
  */
 // const privateKey = fs.readFileSync(__dirname + "/../sslcert/selfsigned.key");
 // const certificate = fs.readFileSync(__dirname + "/../sslcert/selfsigned.crt");
 // const credentials = { key: privateKey, cert: certificate };
 // const server = https.createServer(credentials, new Server().app);
+
+/**
+ * Create HTTP server.
+ */
 const server = http.createServer(new Server().app);
 
 /**

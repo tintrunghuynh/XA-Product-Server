@@ -48,19 +48,23 @@ export class Server {
     config() {
         // connect to db
         let dbURI = process.env.MONGODB_URL;
-        // dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
-        dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
+        dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
+        // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
 
         let statusAutoIndex = true;
         if (process.env.NODE_ENV === "PROD") {
             // dbURI = process.env.MONGODB_P_URL;
-            // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
+            dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
 
         this.app.get("/", (req, res, next) => {
             // console.log("get");
-            res.send("Express with TS");
+            res.send(`
+            <h1>Welcome to Express with TS</h1>
+            <h2>Hosted by Heroku</h2>
+            <a href="/graphql-retrieve" style="text-decoration:none; color: #33334d">Click to come to GraphiQL</a>
+            `);
         });
 
         mongoose.connect(Object(dbURI).toString(), {
@@ -92,11 +96,13 @@ export class Server {
 
         // catch 404 and forward to error handler
         this.app.use((req, res, next) => {
+            console.clear();
+            console.log(req.path);
             // Exception for checking GraphQL using GraphiQL
             if (req.path.includes("/graphql-retrieve")) {
                 next();
             } else {
-                res.send("404.html");
+                res.render("404");
                 next(createError(404));
             }
         });
@@ -136,7 +142,6 @@ export class Server {
                 }
             }
         }));
-
     }
 
     routes() {

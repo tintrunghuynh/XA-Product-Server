@@ -1,3 +1,7 @@
+/**
+ * The TypeScript Compiler (TSC) compile TS only into JS in build/dist folder.
+ * So we need to write the function to copy another file that is not TS files into the build/dist folder, like gpl or certificate ssl/tls  files.
+ */
 var path = require("path");
 var fs = require("fs");
 
