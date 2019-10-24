@@ -96,9 +96,10 @@ var Server = /** @class */ (function () {
             dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
             statusAutoIndex = false;
         }
+        console.log("dbURI: " + dbURI);
         this.app.get("/", function (req, res, next) {
             // console.log("get");
-            res.send("\n            <h1>Welcome to Express with TS</h1>\n            <h2>Hosted by Heroku</h2>\n            <a href=\"/graphql-retrieve\" style=\"text-decoration:none; color: #33334d\">Click to come to GraphiQL</a>\n            ");
+            res.send("\n            <h1> Welcome to Express with TS </h1>\n            <h2> Hosted by Heroku </h2>\n            <a href = \"/graphql-retrieve\" style = \"text-decoration:none; color: #33334d\" > Click to come to GraphiQL </a>            <p>dbURI: " + dbURI + "</p>\n            ");
         });
         mongoose_1.default.connect(Object(dbURI).toString(), {
             useNewUrlParser: true,
@@ -136,7 +137,7 @@ var Server = /** @class */ (function () {
                 next();
             }
             else {
-                res.send("\n                <h1>Error - 404</h1>\n                <h2>Page Not Found</h2>\n                \n                ");
+                res.send("\n                    < h1 > Error - 404 < /h1>\n                    < h2 > Page Not Found < /h2>\n\n                        ");
                 next(http_errors_1.default(404));
             }
         });

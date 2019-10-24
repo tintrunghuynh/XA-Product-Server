@@ -58,12 +58,15 @@ export class Server {
             statusAutoIndex = false;
         }
 
+        console.log("dbURI: " + dbURI);
+
         this.app.get("/", (req, res, next) => {
             // console.log("get");
             res.send(`
-            <h1>Welcome to Express with TS</h1>
-            <h2>Hosted by Heroku</h2>
-            <a href="/graphql-retrieve" style="text-decoration:none; color: #33334d">Click to come to GraphiQL</a>
+            <h1> Welcome to Express with TS </h1>
+            <h2> Hosted by Heroku </h2>
+            <a href = "/graphql-retrieve" style = "text-decoration:none; color: #33334d" > Click to come to GraphiQL </a>\
+            <p>dbURI: ${dbURI}</p>
             `);
         });
 
@@ -109,10 +112,10 @@ export class Server {
                 next();
             } else {
                 res.send(`
-                <h1>Error - 404</h1>
-                <h2>Page Not Found</h2>
-                
-                `);
+                    < h1 > Error - 404 < /h1>
+                    < h2 > Page Not Found < /h2>
+
+                        `);
                 next(createError(404));
             }
         });
