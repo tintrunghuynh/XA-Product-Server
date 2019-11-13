@@ -49,7 +49,6 @@ export class Server {
         // connect to db
         let dbURI = process.env.MONGODB_URL;
         dbURI = "mongodb://adm:35351235@127.0.0.1:27017/XA-Product";
-        // dbURI = "mongodb+srv://CRUD:113355135@xa-product-dvtj7.mongodb.net/XA-Product?retryWrites=true&w=majority";
 
         let statusAutoIndex = true;
         if (process.env.NODE_ENV === "PROD") {
@@ -58,15 +57,12 @@ export class Server {
             statusAutoIndex = false;
         }
 
-        console.log("dbURI: " + dbURI);
-        console.log(process.env.NODE_ENV);
         this.app.get("/", (req, res, next) => {
             // console.log("get");
             res.send(`
             <h1> Welcome to Express with TS </h1>
             <h2> Hosted by Heroku </h2>
-            <a href = "/graphql-retrieve" style = "text-decoration:none; color: #33334d" > Click to come to GraphiQL </a>\
-            <p>dbURI: ${dbURI}</p>
+            <a href = "/graphql-retrieve" style = "text-decoration:none; color: #33334d" > Click to come to GraphiQL </a>
             `);
         });
 
