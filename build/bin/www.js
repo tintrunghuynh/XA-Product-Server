@@ -91,5 +91,5 @@ function onListening() {
     setInterval(function () {
         console.log("Pretend the HerokuApp from going to sleep.");
         http_1.default.get("http://xaproductserver.herokuapp.com/");
-    }, 600000);
+    }, 300000);
 }
