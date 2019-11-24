@@ -108,9 +108,9 @@ function onListening() {
 
     }
     debug(`Listening on ${bind}`);
-    setInterval(function () {
-        console.log("Pretend the HerokuApp from going to sleep.");
-        http.get("http://xaproductserver.herokuapp.com/");
-    }, 300000);
+    // setInterval(function () {
+    //     console.log("Prevent the HerokuApp from going to sleep.");
+    //     http.get("http://xaproductserver.herokuapp.com/");
+    // }, 300000);
 }
 
