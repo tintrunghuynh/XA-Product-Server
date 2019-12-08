@@ -81,7 +81,7 @@ var Server = /** @class */ (function () {
      * @return {ng.auto.IInjectorService} Returns the newly created injector for this app.
      */
     Server.bootstrap = function () {
-        console.log("bootstrap");
+        //console.log("bootstrap");
         return new Server();
     };
     Server.prototype.config = function () {
@@ -106,8 +106,8 @@ var Server = /** @class */ (function () {
             useFindAndModify: false,
             useUnifiedTopology: true,
         }, function (err) {
-            // console.log(mongoose.connections);
-            console.log("Connected into DB: " + dbURI);
+            //console.log(mongoose.connections);
+            //console.log("Connected into DB: " + dbURI);
         }).catch(function (error) {
             console.log("Error occured");
             console.log(error);

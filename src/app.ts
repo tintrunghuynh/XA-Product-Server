@@ -24,7 +24,7 @@ export class Server {
      * @return {ng.auto.IInjectorService} Returns the newly created injector for this app.
      */
     public static bootstrap(): Server {
-        console.log("bootstrap");
+        //console.log("bootstrap");
         return new Server();
     }
 
@@ -74,10 +74,10 @@ export class Server {
             useUnifiedTopology: true,
         }, (err): void => {
             // console.log(mongoose.connections);
-            console.log("Connected into DB: " + dbURI);
+            //console.log("Connected into DB: " + dbURI);
         }).catch(error => {
-            console.log("Error occured");
-            console.log(error);
+            //console.log("Error occured");
+            //console.log(error);
         });
 
 
@@ -99,7 +99,7 @@ export class Server {
         // catch 404 and forward to error handler
         this.app.use((req, res, next) => {
             // console.clear();
-            console.log(req.path);
+            //console.log(req.path);
             // Exception for checking GraphQL using GraphiQL
             if (req.path.includes("/graphql-retrieve")) {
                 next();

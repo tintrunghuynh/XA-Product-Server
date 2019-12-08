@@ -5,14 +5,14 @@
 var path = require("path");
 var fs = require("fs");
 
-console.log(process.env.NODE_ENV);
-console.log(`__dirname: ${__dirname}`);
-console.log(`Environment: ${process.env.NODE_ENV}`);
+//console.log(process.env.NODE_ENV);
+//console.log(`__dirname: ${__dirname}`);
+//console.log(`Environment: ${process.env.NODE_ENV}`);
 if (process.env.NODE_ENV === "DEV") {
-    console.log("copyFileDefInDev");
+    //console.log("copyFileDefInDev");
     copyFileDefInDev();
 } else if (process.env.NODE_ENV === "PROD") {
-    console.log("copyFileDefInProd");
+    //console.log("copyFileDefInProd");
     copyFileDefInProd();
 }
 
@@ -23,8 +23,8 @@ function copyFileDefInDev() {
     const build = path.join(__dirname, "/../build/src/Graphql/types");
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
-    console.log(`From\t: ${src}`);
-    console.log(`To\t: ${build}\n`);
+    //console.log(`From\t: ${src}`);
+    //console.log(`To\t: ${build}\n`);
 }
 // Copy file Graphql TypeDef into Build(dist) folder in Prod Env
 function copyFileDefInProd() {
@@ -33,14 +33,14 @@ function copyFileDefInProd() {
     let build = path.join(__dirname, "../build/src/Graphql/types");
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
-    console.log(`\nFrom\t: ${src}`);
-    console.log(`To\t: ${build}\n`);
+    //console.log(`\nFrom\t: ${src}`);
+    //console.log(`To\t: ${build}\n`);
     src = path.join(__dirname, "/../sslcert");
     build = path.join(__dirname, "../build/sslcert");
     shell(`mkdir -p ${build}`);
     shell(`cp -r ${src}/* ${build}`);
-    console.log(`From\t: ${src}`);
-    console.log(`To\t: ${build}\n`);
+    //console.log(`From\t: ${src}`);
+    //console.log(`To\t: ${build}\n`);
 }
 
 
